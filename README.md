@@ -12,7 +12,7 @@ In this lab, you will develop a client application (TCP) in Java. This client ap
 
 * **See how easy it is to send forged e-mails**, which appear to be sent by certain people but in reality are issued by malicious users.
 
-* **Design a simple object-oriented model** to implement the functional requirements described in the next paragraph.
+* **Design a simple object-oriented mailBot.config.model** to implement the functional requirements described in the next paragraph.
 
 
 ## Functional requirements
@@ -26,7 +26,7 @@ Your mission is to develop a client application that automatically plays pranks 
 ## Constraints
 
 - The goal is for you to work at the wire protocol level (with the Socket API). Therefore, you CANNOT use a library that takes care of the protocol details. You have to work with the input and output streams.
-- The program must be configurable: the addresses, groups, messages CANNOT be hard-coded in the program and MUST be managed in config files.
+- The program must be configurable: the addresses, groups, messages CANNOT be hard-coded in the program and MUST be managed in mailBot.config files.
 
 
 ## Example
@@ -57,5 +57,5 @@ Your report MUST include the following sections:
 * [MockMock server](<https://github.com/tweakers/MockMock>) on GitHub
 * The [mailtrap](<https://mailtrap.io/>) online service for testing SMTP
 * The [SMTP RFC](<https://tools.ietf.org/html/rfc5321#appendix-D>), and in particular the [example scenario](<https://tools.ietf.org/html/rfc5321#appendix-D>)
-* Testing SMTP with TLS: `openssl s_client -connect smtp.mailtrap.io:2525 -starttls smtp -crl`
+* Testing SMTP with TLS: `openssl s_client -connect mailBot.smtp.mailtrap.io:2525 -starttls mailBot.smtp -crl`
 
