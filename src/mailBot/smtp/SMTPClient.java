@@ -25,7 +25,7 @@ public class SMTPClient implements ISMTPClient {
     @Override
     public void sendMessage(Message message) throws IOException {
         LOG.info("Sending message via SMTP");
-        Socket socket = new Socket(smtpServerAddress, smtpServerPort);
+        socket = new Socket(smtpServerAddress, smtpServerPort);
         writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
         reader = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
         String line = reader.readLine();
