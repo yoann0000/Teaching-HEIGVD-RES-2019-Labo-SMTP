@@ -1,6 +1,6 @@
 package mailBot.smtp;
 
-import mailBot.model.Message;
+import mailBot.model.mail.Message;
 
 import java.io.*;
 import java.net.Socket;
@@ -38,8 +38,78 @@ public class SMTPClient implements ISMTPClient {
         }
 
         while (line.startsWith("250-")) {
-
+            line = reader.readLine();
+            LOG.info(line);
         }
-        //TODO
+
+        writer.write("MAIL FROM:");
+        writer.write(message.getFrom());
+        writer.write("\r\n");
+        writer.flush();
+        line = reader.readLine();
+        LOG.info(line);
+
+        for (String to : message.getTo()) {
+            writer.write("RCPT TO:");
+            writer.write(to);
+            writer.write("\r\n");
+            writer.flush();
+            line = reader.readLine();
+            LOG.info(line);
+        }
+
+        for (String to : message.getCc()) {
+            writer.write("RCPT TO:");
+            writer.write(to);
+            writer.write("\r\n");
+            writer.flush();
+            line = reader.readLine();
+            LOG.info(line);
+        }
+
+        for (String to : message.getBcc()) {
+            writer.write("RCPT TO:");
+            writer.write(to);
+            writer.write("\r\n");
+            writer.flush();
+            line = reader.readLine();
+            LOG.info(line);
+        }
+
+        writer.write("DATA");
+        writer.write("\r\n");
+        writer.flush();
+        line = reader.readLine();
+        LOG.info(line);
+        writer.write("Content-Type: text/plain; charset=\"utf-8\"\r\n");
+        writer.write("From: " + message.getFrom() + "\r\n");
+
+        writer.write("To: " + message.getTo()[0]);
+        for (int i = 1; i < message.getTo().length; i++) {
+            writer.write(", " + message.getTo()[i]);
+        }
+        writer.write("\r\n");
+
+        writer.write("Cc: " + message.getCc()[0]);
+        for (int i = 1; i < message.getCc().length; i++) {
+            writer.write(", " + message.getCc()[i]);
+        }
+        writer.write("\r\n");
+
+        writer.flush();
+
+        LOG.info(message.getBody());
+        writer.write(message.getBody());
+        writer.write("\r\n");
+        writer.write(".");
+        writer.write("\r\n");
+        writer.flush();
+        line = reader.readLine();
+        LOG.info(line);
+        writer.write("QUIT\r\n");
+        writer.flush();
+        reader.close();
+        writer.close();
+        socket.close();
     }
 }

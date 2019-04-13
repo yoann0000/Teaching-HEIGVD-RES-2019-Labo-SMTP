@@ -1,6 +1,6 @@
 package mailBot.smtp;
 
-import mailBot.model.Message;
+import mailBot.model.mail.Message;
 
 import java.io.IOException;
 
