@@ -1,11 +1,9 @@
 package mailBot.model.prank;
 
-import mailBot.config.ConfigurationManager;
 import mailBot.config.IConfigurationManager;
 import mailBot.model.mail.Person;
 import mailBot.model.mail.Group;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;

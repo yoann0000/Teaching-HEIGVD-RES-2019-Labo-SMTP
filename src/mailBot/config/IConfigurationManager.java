@@ -8,4 +8,8 @@ public interface IConfigurationManager {
     List<Person> getVictims();
 
     List<String> getMessages();
+
+    int getNumberOfGroups();
+
+    List<Person> getWitnessesToCC();
 }

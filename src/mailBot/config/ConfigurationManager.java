@@ -90,4 +90,14 @@ public class ConfigurationManager implements IConfigurationManager{
         return messages;
     }
 
+    @Override
+    public int getNumberOfGroups() {
+        return numberOfGroups;
+    }
+
+    @Override
+    public List<Person> getWitnessesToCC() {
+        return witnessesToCC;
+    }
+
 }
