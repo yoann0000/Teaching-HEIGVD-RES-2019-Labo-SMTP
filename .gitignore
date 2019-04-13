@@ -51,3 +51,4 @@ Makefile
 .idea
 **target**
 *.iml
+*.class
