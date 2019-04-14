@@ -37,7 +37,7 @@ public class SMTPClient implements ISMTPClient {
             throw new IOException("SMTP error: " + line);
         }
 
-        while (line.startsWith("250-")) {
+        while (line.startsWith("250_")) {
             line = reader.readLine();
             LOG.info(line);
         }

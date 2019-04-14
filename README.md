@@ -1,3 +1,46 @@
+# Lab Notes
+
+## Description
+See objectives and fuctional requirements below.
+
+## Setting up a mock smtp server (with docker)
+To test this application without sending prank e-mails ahead of time, you will need to setup a mock SMTP server.
+
+In this example we are using the MockMock Server which can be found on Github.
+
+To install it simply follow the installation / setup instructions on the MockMock Github page.
+
+Should you want to use MockMock on a docker, you will have to place the .jar file on a java enabled docker instance and run it using the command -jar MockMock.jar
+
+You can then access the web interface same as you would locally except by replacing "localhost" by you docker instance ip.
+
+## Setup Instructions
+In the config folder open the config.properties file and set the following
+
+* smtpServerAddress : the address of your smtp server
+* smtpServerPort : the smtp server port (25 by default)
+* numberOfGroups : number of prank groups you want to generate(minimum 3 people per group)
+* witnessesToCC : address to CC to for verification purposes (most likely your email address)
+
+In the messages.utf8 file write the different messages you want to send separated by a "=="
+
+In the victims.utf8 file write the email addresses of your prank victims
+
+With these config files setup you should be able to compile the code, run the jar and let it do the rest
+
+## Implementation
+
+![image info](./MailbotUML.PNG)
+
+* The smtp package classes are in charge of connecting to the smtp server and sending the messages.
+* The config package is in charge of parsing the data the configuration files and feed it to the rest of the application.
+* The model/mail package generates the classes corresponding to the people, groups and messages serving as ease of use storage objects.
+* The model/prank package is the heart of the application and generates the prank messages from the user data.
+
+Only the Prank and PrankGenerator classes pertain directly to this application.
+
+The rest could easily be reused for other for other mass email or generic SMTP applications with little to no changes.
+
 # Teaching-HEIGVD-RES-2019-Labo-SMTP
 
 ## Objectives
