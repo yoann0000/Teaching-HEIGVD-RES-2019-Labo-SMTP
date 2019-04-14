@@ -13,7 +13,7 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String smtpServerAddress = "address"; //FIXME
+        String smtpServerAddress = "localhost"; //FIXME
         try {
             IConfigurationManager configurationManager = new ConfigurationManager();
             PrankGenerator prankGenerator = new PrankGenerator(configurationManager);
