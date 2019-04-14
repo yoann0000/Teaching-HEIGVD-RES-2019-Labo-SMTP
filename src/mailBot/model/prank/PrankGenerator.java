@@ -28,7 +28,7 @@ public class PrankGenerator {
         // 3 victimes par groupe minimum
         if(numberOfVictims / numberOfGroups < 3){
             numberOfGroups = numberOfVictims / 3;
-            LOG.warning("Pas assez de victimes afin de générer le nombre désiré de groupe. On ne peut générer qu'un" +
+            LOG.warning("Pas assez de victimes afin de générer le nombre désiré de groupes. On ne peut générer qu'un" +
                     " nombre maximal de " + numberOfGroups + " groupes afin d'avoir au minimum 3 victimes par groupe");
         }
 

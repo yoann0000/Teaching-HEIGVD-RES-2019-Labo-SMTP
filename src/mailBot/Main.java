@@ -13,12 +13,12 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        String smtpServerAddress = "localhost"; //FIXME
         try {
             IConfigurationManager configurationManager = new ConfigurationManager();
             PrankGenerator prankGenerator = new PrankGenerator(configurationManager);
 
-            ISMTPClient smtpClient = new SMTPClient(smtpServerAddress, 25);
+            ISMTPClient smtpClient =
+                    new SMTPClient(configurationManager.getSmtpServerAdress(), configurationManager.getSmtpServerPort());
 
             List<Prank> pranks = prankGenerator.generatePranks();
 

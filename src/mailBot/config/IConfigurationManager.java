@@ -12,4 +12,8 @@ public interface IConfigurationManager {
     int getNumberOfGroups();
 
     List<Person> getWitnessesToCC();
+
+    int getSmtpServerPort();
+
+    String getSmtpServerAdress();
 }

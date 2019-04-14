@@ -100,4 +100,14 @@ public class ConfigurationManager implements IConfigurationManager{
         return witnessesToCC;
     }
 
+    @Override
+    public int getSmtpServerPort() {
+        return smtpServerPort;
+    }
+
+    @Override
+    public String getSmtpServerAdress() {
+        return smtpServerAddress;
+    }
+
 }
