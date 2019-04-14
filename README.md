@@ -1,5 +1,9 @@
 # Lab Notes
 
+## Bugs
+
+There is a problem with the message text generation.
+
 ## Description
 See objectives and fuctional requirements below.
 
